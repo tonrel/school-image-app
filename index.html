@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School-Safe Image Finder</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #eef2f3; margin: 0; }
+        .search-container { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.06); text-align: center; width: 90%; max-width: 450px; }
+        h1 { color: #333; margin-bottom: 1.5rem; font-size: 24px; }
+        input[type="text"] { width: 100%; padding: 12px 20px; margin: 8px 0 20px 0; display: inline-block; border: 1px solid #ccc; border-radius: 25px; box-sizing: border-box; font-size: 16px; outline: none; }
+        input[type="text"]:focus { border-color: #4285f4; }
+        button { width: 100%; background-color: #4285f4; color: white; padding: 12px 20px; margin: 8px 0; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        button:hover { background-color: #357ae8; }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <h1>Google Image Search</h1>
+    <input type="text" id="searchQuery" placeholder="Type something to look up...">
+    <button onclick="searchImages()">Search Images</button>
+</div>
+
+<script>
+    function searchImages() {
+        const query = document.getElementById('searchQuery').value;
+        if (query.trim() !== "") {
+            const googleUrl = "https://google.com" + encodeURIComponent(query);
+            window.open(googleUrl, '_blank');
+        } else {
+            alert("Please enter a search term first!");
+        }
+    }
+    
+    document.getElementById("searchQuery").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            searchImages();
+        }
+    });
+</script>
+
+</body>
+</html>
